@@ -1,6 +1,10 @@
 package orms;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -8,11 +12,14 @@ public class User {
     @GeneratedValue
     int id;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     PhoneType phoneType;
 
-    @Transient
-    int test;
+    @CreationTimestamp
+    private Date create_date;
+
+    @UpdateTimestamp
+    private Date update_time;
 
     public int getId() {
         return id;

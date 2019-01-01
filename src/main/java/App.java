@@ -11,7 +11,7 @@ public class App implements IApp {
     @Override
     public SessionFactory initDB() {
         SessionFactory sessionFactory = new SessionFactories()
-                .addSF("mysql", "META-INF/"
+                .addSF("mysql", "hibernate.cfg.mysql.xml"
                         , User.class);
         return sessionFactory;
     }
